@@ -16,6 +16,18 @@ export interface CourseData {
     name: string;
 }
 
+export interface StudentResponse {
+    name: string
+}
+
+export interface HostelResponse {
+    name: string;
+    address: string;
+    room: string;
+    floor: string;
+    commander_name: string;
+}
+
 export const uploadFile = async (data: FormData): Promise<StatusResponse> => {
     // const response = await api.post('/education-progress', data, {
     //     headers: {
@@ -44,4 +56,17 @@ export const addCourse = async (data: CourseData): Promise<StatusResponse> => {
     // const response = await api.post('/courses', data)
     // return response.data
     return {status: "success"}
+}
+
+export const getPayingStudents = async (): Promise<StudentResponse[]> => {
+    // const response = await api.get('/paiying/students')
+    // return response.data
+    return [{name: "Petr"}, {name: "vanya"}, {name: "pidor"}]
+}
+
+
+export const getHostelInfo = async (): Promise<HostelResponse> => {
+    // const response = await api.get('/paiying/students')
+    // return response.data
+    return {name: "obshaga", address: "Moscow 1234", room: "412", floor: "23", commander_name: "Alice"}
 }
