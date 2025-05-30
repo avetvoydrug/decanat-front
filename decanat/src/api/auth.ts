@@ -1,7 +1,5 @@
 import api from './axios';
 
-// import { User, LoginData, AuthResponse } from '../types';
-
 export interface User {
     username: string;
     role: string;
@@ -17,8 +15,8 @@ export interface AuthResponse {
 }
 
 export const login = async (data: LoginData): Promise<AuthResponse> => {
-//     const response = await api.post('/login', data);
-//   return response.data;
+    // const response = await api.post('/login', data);
+    // return response.data;
 // mock
     return {access_token: "1"}
 };
@@ -27,7 +25,7 @@ export const getMe = async (): Promise<User> => {
 //   const response = await api.get('/me');
 //   return response.data;
 // mock
-    return {username: "Valera", role: "ADMIN_NAH"}
+    return {username: "Valera", role: "admin"}
 };
 
 export const logout = () => {

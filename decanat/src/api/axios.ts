@@ -4,8 +4,6 @@ const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
 });
 
-api.defaults.headers.post['Content-Type'] = 'multipart/form-data';
-
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('access_token');
   if (token) {
@@ -17,7 +15,7 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status >= 400 || error.response?.status <= 500 ) {
+    if (error.response?.status >= 400 || error.response?.status <= 501 ) {
       localStorage.removeItem('access_token');
       window.location.href = '/auth';
     }

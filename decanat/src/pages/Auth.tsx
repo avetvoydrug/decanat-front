@@ -15,9 +15,11 @@ export default function Auth() {
     try {
       const { access_token } = await login({ email, password });
       localStorage.setItem('access_token', access_token);
+      console.log(localStorage.getItem('access_token'));
       navigate('/');
     } catch (err) {
-      setError(`Неверный email или пароль`);
+        console.log(`failed to login ${err}`)
+        setError(`Неверный email или пароль`);
     }
   };
 
